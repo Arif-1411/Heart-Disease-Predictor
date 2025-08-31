@@ -135,3 +135,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 ALLOWED_HOSTS = ['heart-disease-predictor.onrender.com']
+
+SECRET_KEY = os.environ.get('SECRET_KEY', 'your-insecure-default-key')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+
+# Add your Render URL here when DEBUG is False
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
